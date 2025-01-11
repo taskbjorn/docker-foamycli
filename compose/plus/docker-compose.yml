@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  foamycli:
+    container_name: foamycli-plus
+    environment:
+      - "DISPLAY=0.0.0.0:0.0"
+    image: taskbjorn/foamycli:plus-latest
+    network_mode: none
+    stdin_open: true
+    tty: true
+    user: 1000:1000
+    volumes:
+      - cases:/home/ofplus/cases
+volumes:
+  cases:
+    name: foamycli_cases

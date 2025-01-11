@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # FoamyCLI Foundation
+  foamycli_latest:
+    &default-foamycli_foundation
+    build:
+      args:
+        - FOAM_VER=9
+      context: foundation
+    image: taskbjorn/foamycli:latest
+
+  foamycli_foundation-latest:
+    <<: *default-foamycli_foundation
+    image: taskbjorn/foamycli:foundation-latest
+
+  foamycli_foundation-9:
+    <<: *default-foamycli_foundation
+    image: taskbjorn/foamycli:foundation-9
+
+  foamycli_9:
+    <<: *default-foamycli_foundation
+    image: taskbjorn/foamycli:9
+
+  # FoamyCLI ESI
+  foamycli_esi-latest:
+    &default-foamycli_esi
+    build:
+      args:
+        - FOAM_VER=2106
+      context: esi
+    image: taskbjorn/foamycli:esi-latest
+
+  foamycli_esi-v2106:
+    <<: *default-foamycli_esi
+    image: taskbjorn/foamycli:esi-v2106
+
+  # FoamyCLI Extend
+  foamycli_extend-latest:
+    &default-foamycli_extend
+    build:
+      args:
+        - FOAM_VER=4.1
+      context: extend
+    image: taskbjorn/foamycli:extend-latest
+
+  foamycli_extend-4.1:
+    <<: *default-foamycli_extend
+    image: taskbjorn/foamycli:extend-4.1

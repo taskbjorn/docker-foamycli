@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  foamycli:
+    container_name: foamycli-vanilla
+    environment:
+      - "DISPLAY=192.168.1.21:0.0"
+    image: taskbjorn/foamycli:vanilla-latest
+    network_mode: bridge
+    stdin_open: true
+    tty: true
+    user: 1000:1000
+    volumes:
+      - C:\\Users\\accou\\Downloads\\OpenFOAM\\T-junction:/home/openfoam/cases
